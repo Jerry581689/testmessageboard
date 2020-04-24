@@ -3,7 +3,7 @@
     ?>
 	<html>  
     <head>  
-    <title>我的留言板.檢視留言</title> 
+    <title>我的留言板.檢視留言123</title> 
     </head>   
     <center>  
      <h2>我的留言板</h2>  
