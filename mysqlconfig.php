@@ -10,45 +10,22 @@
         }
         return $link;
     }
+     //新增留言
     function insert($link,$sql){
-      if (mysqli_query($link, $sql)) { 
-          echo "<script language='javascript'> alert('註冊成功!');location='index.php'; </script>"; 
-      } else { 
-          echo "Error insert data: " . $link->error; 
-      }
-
-     }
-
-    function CheckUser($link,$sql){
-      $result = mysqli_query($link,$sql);
-      $row = mysqli_num_rows($result);
-      if($row != 0){
-        return true;
-        }
-	  else{
-        return false;
-        }
-     }
-    function insertl($link,$sql){
        if (mysqli_query($link, $sql)) { 
           echo "<script language='javascript'> alert('留言成功!');location='index.php'; </script>"; 
        } else { 
           echo "Error insert data: " . $link->error; 
       }
-
      }
-	 function print1($link,$sql){
-        $result = mysqli_query($link,$sql);
-        $data = array();
-        while ($row = mysqli_fetch_array($result)) {
-          $data[] = $row;
-        }
-        if ($data) {
-          return $data;
-        } else {
-          return false;
-        }
-      }
      
+     function edit1($link,$sql){
+      if (mysqli_query($link, $sql)) { 
+        echo "<script>alert('修改成功，返回首頁');location='index.php';</script>";
+     } else { 
+      echo "<script>alert('修改失敗');location='index.php'</script>";
+      exit;
+    }
+     }
 }
 ?>
