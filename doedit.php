@@ -13,7 +13,7 @@ if($message!=null){
     $res = $ma1 -> edit1($link,$sql);
 };
 if($message==null){
-   echo "<script>alert('請輸入修改留言！');location='edit.php';</script>";
+   echo "<script>alert('請輸入修改留言！');location.href='edit.php?id=$id';</script>";
 };   
 
 ?>
