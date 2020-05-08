@@ -1,3 +1,17 @@
+<?php
+    include 'MessageBoardController.php';
+      $controller = new MessageBoardController();
+    if (isset($_POST['add'])) { //新增
+      $user = $_POST['input-user'];
+      $content = $_POST['input-content'];
+      $controller->add($user, $content);
+    } elseif (isset($_POST['remove'])) { //刪除
+      $id = $_POST['id'];
+      $controller->remove($id);
+    }
+
+      $messages = $controller->show();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,30 +21,19 @@
 </head>
 
 <body bgcolor="#FFCC6E">
+
   <center>
     <h2>我的留言板</h2>
     <hr width="70%">
   </center>
-  <?php
-  include 'MessageBoardController.php';
-  $controller = new MessageBoardController();
-  if (isset($_POST['add'])) { //新增
-    $user = $_POST['input-user'];
-    $content = $_POST['input-content'];
-    $controller->add($user, $content);
-  } else if (isset($_POST['remove'])) { //刪除
-    $id = $_POST['id'];
-    $controller->remove($id);
-  }
 
-  $messages = $controller->show();
-  ?>
 
 
 
   <?php
   if ($messages) {
-    foreach ($messages as $row) { ?>
+    foreach ($messages as $row) { 
+  ?>
 
       <table border="1" align="center" width="1000px" height="150px">
         <tr>
@@ -47,13 +50,12 @@
         </tr>
         <tr>
           <td align="center" width="100px">留言內容</td>
-          <td width="100px" colspan="3"><?= $row['liuyan']  ?></td>
-          <form action="edit.php" method="POST">
+          <td width="100px" colspan="3"><?= $row['liuyan'] ?></td>
+          <form action="edit.php?id=<?= $row['id'] ?>" method="POST">
+
+
+
             <td align="center" width="100px">
-              <input type="hidden" name="id" value="<?= $row['id'] ?>" />
-              <input type="hidden" name="author" value="<?= $row['author'] ?>" />
-              <input type="hidden" name="liuyan" value="<?= $row['liuyan'] ?>" />
-              <input type="hidden" name="time" value="<?= $row['time'] ?>" />
               <input type="submit" value="修改" />
             </td>
           </form>
@@ -85,8 +87,8 @@
           </th>
         </tr>
       </table>
-      <input type="submit" name="<?= isset($_POST['add'])? : 'add' ?>" value="送出" />
-                                
+      <input type="submit" name="<?= isset($_POST['add']) ?: 'add' ?>" value="送出" />
+
   </form>
   </center>
 
