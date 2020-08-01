@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var url = location.href;
     var ary1 = url.split('edit/');
+    console.log(new URL(location.href));
     var id = ary1[1];
     console.log(id);
     $.ajax({

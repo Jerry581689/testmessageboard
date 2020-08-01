@@ -32,15 +32,15 @@ class MessageBoardController extends CI_Controller
         ]);
     }
 
-    /**
-     * 顯示新增留言介面
-     *
-     * @return void
-     */
-    public function add()
-    {
-        $this->load->view('addpost');
-    }
+    // /**
+    //  * 顯示新增留言介面
+    //  *
+    //  * @return void
+    //  */
+    // public function add()
+    // {
+    //     $this->load->view('addpost');
+    // }
 
     /**
      * 顯示修改介面

@@ -20,7 +20,7 @@ $(document).ready(function () {
     }
   });
 
-  $(document).on("click", "#create1", function () {
+  $('#create1').on("click", function () {
     let name = $("input[name='input-user']").val();
     let content = $("textarea[name='input-content']").val();
     $.ajax({
@@ -32,8 +32,8 @@ $(document).ready(function () {
         'content': content,
       },
       success: function (response) {
-        window.location = "http://127.0.0.1/messageboard-jerry/"
         console.log(response);
+        window.location = "http://127.0.0.1/messageboard-jerry/";
       }
     })
   });

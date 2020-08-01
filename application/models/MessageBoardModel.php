@@ -92,14 +92,4 @@ class MessageBoardModel extends CI_Model
 
         return $this->db->affected_rows();
     }
-
-    /**
-     * 關閉資料庫
-     *
-     * @return void
-     */
-    public function __destruct()
-    {
-        $this->db->close();
-    }
 }

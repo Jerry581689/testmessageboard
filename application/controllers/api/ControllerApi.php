@@ -41,9 +41,9 @@ class ControllerApi extends CI_Controller
             $this->MessageBoardModel->create($author, $content);
             $this->output->set_output(json_encode((object) [
                 'states' => 'ok',
-                'message' => '新增資料成功',
+                'message' => 'Added data successfully',
             ]));
-            header(base_url('MessageBoardController/index'));
+            //header(base_url('MessageBoardController/index'));
         } else {
             //$this->load->view('addpost');
             $this->output->set_output(json_encode((object) [
@@ -59,13 +59,13 @@ class ControllerApi extends CI_Controller
         if ($result == 1) {
             $this->output->set_output(json_encode((object) [
                 'status' => 'success',
-                'message' => '成功刪除' . $result . '筆',
+                'message' => 'Successfully deleted ' . $result ,
             ]));
             $this->load->view('index');
         } else {
             $this->output->set_output(json_encode((object) [
                 'status' => 'failed',
-                'message' => '刪除失敗',
+                'message' => 'failed to delete',
             ]));
         }
     }
