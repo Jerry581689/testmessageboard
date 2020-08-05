@@ -40,21 +40,17 @@ class ControllerApi extends CI_Controller
             $content = $this->input->post('content');
             $this->MessageBoardModel->create($author, $content);
             $this->output->set_output(json_encode((object) [
-                'states' => 'ok',
-                'message' => 'Added data successfully',
+                'states' => '新增成功',
             ]));
-            //header(base_url('MessageBoardController/index'));
         } else {
-            //$this->load->view('addpost');
             $this->output->set_output(json_encode((object) [
-                'states' => 'failed',
+                'states' => '新增失敗',
                 'message' => validation_errors(),
             ]));
         }
     }
     public function remove($id)
     {
-        //$id = $this->input->post('id');
         $result = $this->MessageBoardModel->remove($id);
         if ($result == 1) {
             $this->output->set_output(json_encode((object) [
@@ -89,13 +85,10 @@ class ControllerApi extends CI_Controller
 
             if ($result == 1) {
                 $this->output->set_output(json_encode((object) [
-                    'status' => 'ok',
                     'message' => '修改成功',
-                    'data' => $message,
                 ]));
             } else {
                 $this->output->set_output(json_encode((object) [
-                    'states' => 'failed',
                     'message' => '修改失敗',
                 ]));
             }

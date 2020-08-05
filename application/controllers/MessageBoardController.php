@@ -31,30 +31,4 @@ class MessageBoardController extends CI_Controller
             'messages' => $result,
         ]);
     }
-
-    // /**
-    //  * 顯示新增留言介面
-    //  *
-    //  * @return void
-    //  */
-    // public function add()
-    // {
-    //     $this->load->view('addpost');
-    // }
-
-    /**
-     * 顯示修改介面
-     *
-     * @param int $id
-     *
-     * @return object
-     */
-    public function edit($id)
-    {
-        $message = $this->MessageBoardModel->get($id)->result_array()[0];
-
-        $this->load->view('edit', [
-            'message' => $message,
-        ]);
-    }
 }

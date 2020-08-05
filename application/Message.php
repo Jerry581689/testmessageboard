@@ -77,5 +77,5 @@ class Message
 	{
 		$this->time = $time;
 	}
-	
+
 }
